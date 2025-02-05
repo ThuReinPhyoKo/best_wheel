@@ -1,0 +1,340 @@
+.details-page {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* blur */
+.blur{
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+
+.detail-img-container {
+    width: 800px;
+}
+
+.detail-car-img {
+    width: 100%;
+}
+
+.detail-info-container {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+}
+
+.model{
+    font-size: 3em;
+    color:teal;
+    font-style: oblique;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.price, .year, .type,
+.origin, .mileage, .description {
+    font-size: 1.8em;
+    margin: 10px;
+    color: black;
+}
+
+.detail-button-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 20px 100px 20px;
+}
+
+.test-drive, .contact-now {
+    padding: 20px;
+    font-size: 30px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.test-form {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    max-width: 90%;
+    height: 700px;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    box-shadow: 4px 8px 12px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+
+.test-form-header {
+    width: 100%;
+}
+
+.test-header {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding: 20px;
+}
+
+.client-name, .client-phone-number, .test-date, .test-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name-input, .phone-input, .date-input, .time-input {
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 40px;
+    border-style: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="date"]{
+    color: #8B8E98;
+}
+
+input[type='time']{
+    color: #8B8E98;
+}
+
+#label-name {
+    margin-top: 20px
+}
+
+.time-input {
+    margin-bottom: 40px;
+}
+
+#label-name, #label-number, #label-test-date, #label-time {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #8B8E98;
+    font-weight: 600;
+}
+
+.test-confirm {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#test-cancel-btn, #test-submit-btn {
+    margin: 20px;
+    font-size: 1.8em;
+    font-weight: 400;
+    padding: 10px;
+    width: 120px;
+    background-color: #016DD9;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media  (max-width: 765px) {
+    .test-form {
+        width: 90%;
+    }
+    .name-input, .phone-input,
+    .date-input, .time-input {
+        width: 85%;
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    .test-drive, .contact-now {
+        padding: 15px;
+        font-size: 25px;
+    }
+    #label-name {
+        margin-top: 10px
+    }
+    
+    .time-input {
+        margin-bottom: 50px;
+    }
+    #test-cancel-btn, #test-submit-btn{
+        font-size: 25px;
+    }
+    .price, .year, .type,
+    .origin, .mileage, .description {
+        font-size: 1.4em;
+    }
+    .model {
+        font-size: 2em;
+    }
+}
+
+/* Purchase Form */
+
+.buy-form {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    max-width: 90%;
+    height: 700px;
+    padding-left: 30px;
+    padding-right: 30px;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    box-shadow: 4px 8px 12px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+
+.buy-form-header {
+    width: 100%;
+    text-align: center;
+}
+
+.buy-form-header-text {
+    font-size: 30px;
+    margin: 0;
+    padding: 20px;
+}
+
+.buy-form-name, .buy-form-card,
+.buy-form-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#buy-name, #buy-card, #buy-datecvv {
+    font-size: 16px;
+    color: #8B8E98;
+    font-weight: 600;
+    padding-left: 0;
+}
+
+.buy-name-input, .buy-card-input {
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border-style: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+.split {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.buy-date-input {
+    flex: 2;
+    min-width: 160px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border-style: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+.buy-cvv-input {
+    flex: 1;
+    min-width: 80px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border-style: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+.buy-car-detail-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+span {
+    font-size: 22px;
+    color: #8B8E98;
+    font-weight: 600;
+}
+
+.buy-car-detail-model, .buy-car-detail-price {
+    font-size: 25px;
+}
+
+.terms-conditions {
+    margin-left: 20px;
+}
+
+.checkbox {
+    transform: scale(1.5);
+}
+
+.agree {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.buy-form-btns {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.buy-cancel, .buy-proceed {
+    margin: 20px;
+    font-size: 1.8em;
+    font-weight: 400;
+    padding: 10px;
+    width: 125px;
+    background-color: #016DD9;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 765px){
+    .buy-form{
+        width: 90%;
+        padding: 10px;
+    }
+    .buy-car-detail-model, .buy-car-detail-price {
+        font-size: 20px;
+    }
+    span {
+        font-size: 18px;
+    }
+    .buy-cancel, .buy-proceed {
+        font-size: 25px;
+    }
+}
