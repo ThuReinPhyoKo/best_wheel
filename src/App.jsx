@@ -160,7 +160,6 @@ export const carDetails = [
   },
 ];
 
-
 function Nav() {
   const [ isOpen, setIsOpen ] = useState(false);
 
@@ -186,6 +185,27 @@ function Nav() {
 
 function App() {
   const [ selectedType, setSelectedType ] = useState('All')
+  const [ purchaseForm, setPurchaseForm ] = useState(false);
+  const [ purchaseData, setPurchaseData ] = useState({
+    holdername: '', card: '', expirydate: '', cvv: ''
+  })
+
+  const showForm = () => {
+    setPurchaseForm(true);
+  }
+  const closeForm = () => {
+    setPurchaseForm(false);
+  }
+  const handleForm = (e) => {
+    setPurchaseData({...purchaseData, [e.target.name]: e.target.value})
+  }
+  const proceedBtn = () => {
+    alert('Your payment is being reviewed. We will contact you after verification.')
+    setPurchaseData({
+      holdername: '', card: '', expirydate: '', cvv: ''
+    })
+    setPurchaseForm(false);
+  }
 
   const filteredCars = selectedType === 'All' 
   ? carDetails
@@ -209,7 +229,7 @@ function App() {
       </div>
 
       <div className="car-section"  id='cars'>
-        <h2 className='car-section-header-text'>Car Section</h2>
+        <h2 className='car-section-header-text'>Ready to Hit the Road? Choose Your Car</h2>
       
         <Swiper 
           effect= {'coverflow'}
@@ -285,12 +305,52 @@ function App() {
                     <button className='see-more-btn'>Details</button>
                   </Link>
                   {/*From Uiverse.io by iZOXVL*/}
-                  <button class="boton-elegante">Purchase</button>              
+                  <button class="boton-elegante" onClick={showForm}>Purchase</button>              
               </div>
             
             </div>
           ))}
         </div>
+
+        {purchaseForm && (
+                <div className="buy-form">
+                    <div className="buy-form-header">
+                        <h3 className="buy-form-header-text">
+                            Please fill out the form <br/> for payment
+                        </h3>
+                    </div>
+                    <div className="buy-form-name">
+                        <label htmlFor="name" id="buy-name">Card Holder Full Name</label>
+                        <input type="text" name="holdername" className="buy-name-input"
+                        value={purchaseData.holdername} onChange={handleForm} placeholder="Enter your full name" />
+                    </div>
+                    <div className="buy-form-card">
+                        <label htmlFor="card" id="buy-card">Card Number</label>
+                        <input type="number" name="card" className="buy-card-input"
+                        value={purchaseData.card} onChange={handleForm} placeholder="0000 0000 0000 0000" />
+                    </div>
+                    <div className="buy-form-date">
+                        <label htmlFor="date & cvv" id="buy-datecvv">Expiry Date / CVV</label>
+                        <div className="split">
+                            <input type="date" name="expirydate" className="buy-date-input"
+                            value={purchaseData.expirydate} onChange={handleForm} />
+                            <input type="number" name="cvv" className="buy-cvv-input"
+                            value={purchaseData.cvv} onChange={handleForm} placeholder="CVV" />
+                        </div>
+                    </div>
+                    <div className="buy-car-detail-box">
+                        <h3 className="buy-car-detail-model"><span>Suggestion: </span>See the details first</h3>
+                    </div>
+                    <div className="terms-conditions">
+                        <input type="checkbox" className="checkbox" />
+                        <label htmlFor="checkbox" className="agree">I agree to the terms and conditions</label>
+                    </div>
+                    <div className="buy-form-btns">
+                        <button onClick={closeForm} className="buy-cancel">Cancel</button>
+                        <button className="buy-proceed" onClick={proceedBtn}>Proceed</button>
+                    </div>
+                </div>
+            )}
       
       </div>  
       
@@ -309,7 +369,7 @@ function App() {
                 <img src={ratingStar} className='star' alt="star" />
               </div>
               <p className='date'>5 days ago</p>
-              <p className='review-text'>Buying my car from 'Best Wheel' was an amazing experience! The staff was super helpful, and the whole process was smooth and stress-free. Highly recommend!</p>
+              <p className='review-text'>Buying my car from 'Best Wheel' was an amazing experience! The whole process was smooth and stress-free. Highly recommend!</p>
               <p className="author"> - Sarah</p>
             </div>
           </div>
@@ -325,7 +385,7 @@ function App() {
                   <img src={ratingStar} className='star' alt="star" />
               </div>
               <p className='date'>1 month ago</p>
-              <p className='review-text'>From browsing to buying, the process was seamless! No hidden fees, no hassle—just great service and a fantastic car.<br/> Love it!</p>
+              <p className='review-text'>From browsing to buying, the process was seamless! No hidden fees, no hassle—just great service and a fantastic car. Love it!</p>
               <p className="author"> - John</p>
             </div>
           </div>

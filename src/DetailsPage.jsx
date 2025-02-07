@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import './Details.css'
 import './additional.css'
@@ -7,6 +7,7 @@ import { carDetails } from "./App";
 
 function DetailsPage() {
     const {model} = useParams();
+    const navigate = useNavigate();
     const [ isFormVisible , setIsFormVisible ] = useState(false);
     const [ buyForm, setBuyForm ] = useState(false);
     const [ formData, setFormData ] = useState({
@@ -59,17 +60,20 @@ function DetailsPage() {
     return (
         <>
             <div className={`details-page ${isFormVisible || buyForm? 'blur' : ''}`}>
+                <div className="back-btn-div">
+                    <button className="back-btn" onClick={() => navigate("/")}><i class="fa-solid fa-arrow-left-long"></i> Back</button>
+                </div>
                 <div className="detail-img-container">
                     <img src={car.img} alt={car.model} className="detail-car-img"/>
                 </div>
                 <div className="detail-info-container">
                     <h3 className="model">{car?.model || 'Unknown Model'}</h3>
-                    <p className="price">Price: {car?.price || 'Price is not available'}</p>
-                    <p className="year">Year: {car?.year || 'Unknown'}</p>
-                    <p className="type">Type: {car?.type || 'Unknown'}</p>
-                    <p className="origin">Origin: {car?.origin || 'Unknown'}</p>
-                    <p className="mileage">Mileage: {car?.mileage || 'Unknown'}</p>
-                    <p className="description">Description: {car?.description || 'Description coming soon ...'}</p>
+                    <p className="price"><span id="P">Price:</span> {car?.price || 'Price is not available'}</p>
+                    <p className="year"><span id="P">Year:</span> {car?.year || 'Unknown'}</p>
+                    <p className="type"><span id="P">Type:</span> {car?.type || 'Unknown'}</p>
+                    <p className="origin"><span id="P">Origin:</span> {car?.origin || 'Unknown'}</p>
+                    <p className="mileage"><span id="P">Mileage:</span> {car?.mileage || 'Unknown'}</p>
+                    <p className="description"><span id="P">Description:</span> {car?.description || 'Description coming soon ...'}</p>
                     <div className="detail-button-container">
                         <button className="test-drive" onClick={testFormDisplay}>Test Drive</button>
                         <button className="contact-now" onClick={buyFormDisplay}>Purchase</button>
