@@ -200,7 +200,7 @@ function App() {
     setPurchaseData({...purchaseData, [e.target.name]: e.target.value})
   }
   const proceedBtn = () => {
-    alert('Your payment is being reviewed. We will contact you after verification. hello Mom')
+    alert('Your payment is being reviewed. We will contact you after verification.')
     setPurchaseData({
       holdername: '', card: '', expirydate: '', cvv: ''
     })
